@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeSpeed</title>
+    <link rel="stylesheet" href="typespeed.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Type<span>Speed</span></h1>
+        <p class="subtitle">Test your typing speed and accuracy</p>
+      </header>
+      <section class="duration-section">
+        <h3>Choose duration</h3>
+        <div class="duration-buttons">
+          <button class="duration-btn" id="15" onclick="Duration('15')">
+            15s
+          </button>
+          <button class="duration-btn" id="30" onclick="Duration('30')">
+            30s
+          </button>
+          <button class="duration-btn" id="45" onclick="Duration('45')">
+            45s
+          </button>
+          <button class="duration-btn" id="60" onclick="Duration('60')">
+            60s
+          </button>
+        </div>
+      </section>
+      <section class="stats">
+        <div class="stat-box">
+          <span>TIME</span>
+          <strong id="timer">30</strong>
+        </div>
+        <div class="stat-box">
+          <span>WPM</span>
+          <strong id="wpm">0</strong>
+        </div>
+        <div class="stat-box">
+          <span>ACCURACY</span>
+          <strong id="accuracy">0%</strong>
+        </div>
+      </section>
+      <section class="typing-card">
+        <div id="text-display"></div>
+        <div id="extra-chars"></div>
+        <textarea
+          id="typing-input"
+          placeholder="Start typing here..."
+          spellcheck="false"
+          autocomplete="off"
+          autocorrect="off"
+        ></textarea>
+      </section>
+      <section class="result-card" id="result-card">
+        <h2>RESULT</h2>
+        <div class="result-stats">
+          <div>
+            <span>WPM</span>
+            <strong id="final-wpm">0</strong>
+          </div>
+          <div>
+            <span>Accuracy</span>
+            <strong id="final-accuracy">0%</strong>
+          </div>
+          <div>
+            <span>Characters</span>
+            <strong id="characters">0</strong>
+          </div>
+        </div>
+        <button id="restart-btn" onclick="Restart()">Try Again</button>
+      </section>
+      <footer>
+        <p>Type fast. Type accurately. 🚀</p>
+      </footer>
+    </main>
+    <script src="typespeed.js"></script>
+  </body>
+</html>
