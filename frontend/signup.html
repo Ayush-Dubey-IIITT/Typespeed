@@ -12,16 +12,19 @@
     <h1>Create Account</h1>
     <p>Sign up to save your typing results.</p>
 
-    <form>
-        <input type="text" placeholder="Username" required>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
-        <input type="password" placeholder="Confirm Password" required>
+    <form id="signup-form">
+        <input id="user" type="text" placeholder="Username" required>
+        <input id="email" type="email" placeholder="Email" required>
+        <input id="pass" type="password" placeholder="Password" required>
+        <input id="conf_pass" type="password" placeholder="Confirm Password" required>
 
         <button type="submit">Sign Up</button>
+
+        <p id="signup-error"></p>
     </form>
 
     <p>Already have an account? <a href="login.html">Sign In</a></p>
+    <script src="signup.js"></script>
 </div>
 
 </body>
