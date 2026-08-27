@@ -1,6 +1,12 @@
+import os
+from dotenv import load_dotenv
 from sqlmodel import create_engine,Session
 
-DATABASE_URL="mysql+pymysql://root:B%40dt!mes69@localhost/typeSpeed"
+load_dotenv()
+
+DATABASE_URL=os.getenv("DATABASE_URL")
+if DATABASE_URL is None:
+    raise RuntimeError("DATABASE_URL is not set")   
 engine=create_engine(DATABASE_URL)
 
 def get_session():
