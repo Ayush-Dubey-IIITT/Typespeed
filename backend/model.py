@@ -14,3 +14,7 @@ class UserInDB(User,table=True):
 
 class UserResponse(User):
     id:int
+
+class UserLogin(SQLModel):
+    email:EmailStr
+    password:str

@@ -59,7 +59,19 @@ header {
     border: 1px solid #d47752;
     font-weight: bold;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important;
+    color: white !important;
+    caret-color: white !important;
 
+    -webkit-box-shadow: 0 0 0 1000px #302f2b inset !important;
+    box-shadow: 0 0 0 1000px #302f2b inset !important;
+
+    background-color: #302f2b !important;
+}
 .signup-btn:hover {
     box-shadow: 0 0 18px rgba(212, 119, 82, .25);
     transform: translateY(-2px);
