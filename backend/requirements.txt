@@ -1,0 +1,7 @@
+fastapi
+sqlmodel
+python-dotenv
+PyJWT
+pwdlib
+uvicorn
+pymysql
