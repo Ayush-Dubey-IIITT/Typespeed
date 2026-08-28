@@ -11,7 +11,6 @@ if(form){
       signup_error.textContent="Passwords do not match! Please try again.";
       return;
     }
-    signup_error.style.display="none";
     const response= await fetch("http://127.0.0.1:8000/signup",{
       method:"POST",
       headers:{
@@ -24,6 +23,12 @@ if(form){
       })
     });
     const data=await response.json();
+    if(!response.ok){
+      signup_error.textContent=data.detail;
+      return;
+    }
     console.log(data);
+    form.reset();
+    window.location.href='index.html';
   });
 }

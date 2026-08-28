@@ -2,8 +2,8 @@ from sqlmodel import SQLModel,Field
 from pydantic import EmailStr
 
 class User(SQLModel):
-    username:str
-    email:EmailStr
+    username:str=Field(unique=True)
+    email:EmailStr=Field(unique=True)
 
 class UserCreate(User):
     password:str

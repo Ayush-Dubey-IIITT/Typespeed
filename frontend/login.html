@@ -10,12 +10,14 @@
     <div class="login-container">
       <h1>Welcome Back</h1>
       <p>Sign in to save your typing results.</p>
-      <form>
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
+      <form id="Login-form">
+        <input id="email" type="email" placeholder="Email" required />
+        <input id="pass" type="password" placeholder="Password" required />
         <button type="submit">Sign In</button>
+        <p id="login-error"></p>
       </form>
       <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
+    <script src="login.js"></script>
   </body>
 </html>

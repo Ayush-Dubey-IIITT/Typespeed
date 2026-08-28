@@ -18,6 +18,16 @@ app.add_middleware(
 SQLModel.metadata.create_all(engine)
 @app.post("/signup",response_model=UserResponse)
 def signup(user:UserCreate,session:Annotated[Session,Depends(get_session)]):
+    statement=select(UserInDB).where(
+        (UserInDB.email==user.email)|
+        (UserInDB.username==user.username)
+    )
+    userdb=session.exec(statement).first()
+    if userdb:
+        raise HTTPException(
+            status_code=400,
+            detail="Username or email already exists!",
+        )
     user_in_db=UserInDB(
         username=user.username,
         email=user.email,
