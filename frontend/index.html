@@ -12,8 +12,34 @@
         <h1>Type<span>Speed</span></h1>
         <p class="subtitle">Test your typing speed and accuracy</p>
         <div class="auth-buttons">
-          <button class="signin-btn" onclick="window.location.href='login.html'">Sign In</button>
-          <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+          <button
+            class="signin-btn"
+            id="signin-btn"
+            onclick="window.location.href = 'login.html'"
+          >
+            Sign In
+          </button>
+          <button
+            class="signup-btn"
+            id="signup-btn"
+            onclick="window.location.href = 'signup.html'"
+          >
+            Sign Up
+          </button>
+          <a href="profile.html" id="profile-icon" style="display: none">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              style="pointer-events: none"
+            >
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
+            </svg>
+          </a>
         </div>
       </header>
       <section class="duration-section">

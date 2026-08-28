@@ -140,3 +140,9 @@ function Restart() {
   input.focus();
   document.getElementById("result-card").classList.remove("show");
 }
+const token = localStorage.getItem("access_token");
+if (token) {
+  document.getElementById("profile-icon").style.display = "inline-block";
+  document.getElementById("signup-btn").style.display = "none";
+  document.getElementById("signin-btn").style.display = "none";
+}

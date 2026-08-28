@@ -19,7 +19,7 @@ form.addEventListener("submit",async (event)=>{
         login_error.textContent=data.detail;
         return;
     }
-    console.log(data);
+    localStorage.setItem("access_token",data.access_token)
     form.reset();
     window.location.href='index.html';
 });
