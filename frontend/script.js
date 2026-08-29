@@ -140,9 +140,35 @@ function Restart() {
   input.focus();
   document.getElementById("result-card").classList.remove("show");
 }
-const token = localStorage.getItem("access_token");
-if (token) {
-  document.getElementById("profile-icon").style.display = "inline-block";
-  document.getElementById("signup-btn").style.display = "none";
-  document.getElementById("signin-btn").style.display = "none";
+async function checkAuth(){
+  const token=localStorage.getItem("access_token");
+  const signin=document.getElementsById("signin-btn");
+  const signup=document.getElementsById("signup-btn");
+  const profileIcon=document.getElementsById("profile-icon");
+  if(!token){
+    signin.style.display="inline-block";
+    signup.style.display="inline-block";
+    profileIcon.style.display="none";
+  }
+  try{
+    const response=await fetch("http://127.0.0.1:8000/users/me",{
+      headers:{
+        "Authorization":`Bearer ${token}`
+      }
+    });
+    if(!response.ok){
+      localStorage.removeItem("access_token")
+      signin.style.display="none";
+      signup.style.display="none";
+      profileIcon.style.display="inline-block";
+      return;
+    }
+    signin.style.display="inline-block";
+    signup.style.display="inline-block";
+    profileIcon.style.display="none";
+  }
+  catch(error){
+    console.log("Authentication check failed:",error);
+  }
 }
+checkAuth();

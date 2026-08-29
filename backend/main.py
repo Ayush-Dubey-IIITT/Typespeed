@@ -19,7 +19,7 @@ oauth2_scheme=OAuth2PasswordBearer(tokenUrl="login")
 app=FastAPI()
 
 def create_access_token(user_id:int):
-    expire=datetime.now(timezone.utc)+timedelta(minutes=30)
+    expire=datetime.now(timezone.utc)+timedelta(minutes=0.1667)
     payload={
         "sub":str(user_id),
         "exp":expire
