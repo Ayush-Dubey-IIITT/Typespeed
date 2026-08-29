@@ -11,6 +11,54 @@ body {
     min-height: 100vh;
 }
 
+.success-popup {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translate(-50%, -120px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 12px;
+
+    background: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #444;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+
+    transition:
+        transform 0.45s ease,
+        opacity 0.45s ease;
+}
+
+.success-popup.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+.success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+
+    background: #4caf50;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .container {
     width: 90%;
     max-width: 1000px;
