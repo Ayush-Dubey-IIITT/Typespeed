@@ -4,4 +4,4 @@ python-dotenv
 PyJWT
 pwdlib
 uvicorn
-pymysql
+psycopg[binary]
