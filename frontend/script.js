@@ -149,9 +149,10 @@ async function checkAuth(){
     signin.style.display="inline-block";
     signup.style.display="inline-block";
     profileIcon.style.display="none";
+    return;
   }
   try{
-    const response=await fetch("https://typespeed-cwb6.onrender.com/users/me",{
+    const response=await fetch("http://127.0.0.1:8000/users/me",{
       headers:{
         "Authorization":`Bearer ${token}`
       }
@@ -172,3 +173,27 @@ async function checkAuth(){
   }
 }
 checkAuth();
+function signup_confirm(){
+  const spopup=document.getElementById("signup-success-popup");
+  spopup.classList.add("show");
+  setTimeout(()=>{
+    spopup.classList.remove("show");
+  },3000);
+}
+const params=new URLSearchParams(window.location.search);
+if(params.get("signup")==="success"){
+  signup_confirm();
+}
+if(params.get("login")==="success"){
+  login_confirm();
+}
+if(params.has("signup") || params.has("login")){
+  window.history.replaceState({},document.title,'index.html');
+}
+function login_confirm(){
+  const lpopup=document.getElementById("login-success-popup");
+  lpopup.classList.add("show");
+  setTimeout(()=>{
+    lpopup.classList.remove("show");
+  },3000);
+}

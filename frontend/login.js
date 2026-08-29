@@ -4,7 +4,7 @@ form.addEventListener("submit",async (event)=>{
     const email=document.getElementById("email").value;
     const pass=document.getElementById("pass").value;
     const login_error=document.getElementById("login-error");
-    const response=await fetch("https://typespeed-cwb6.onrender.com/login",{
+    const response=await fetch("http://127.0.0.1:8000/login",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -21,5 +21,5 @@ form.addEventListener("submit",async (event)=>{
     }
     localStorage.setItem("access_token",data.access_token)
     form.reset();
-    window.location.href='index.html';
+    window.location.href='index.html?login=success';
 });
