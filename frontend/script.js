@@ -152,7 +152,7 @@ async function checkAuth(){
     return;
   }
   try{
-    const response=await fetch("http://127.0.0.1:8000/users/me",{
+    const response=await fetch("https://typespeed-cwb6.onrender.com/users/me",{
       headers:{
         "Authorization":`Bearer ${token}`
       }
@@ -173,27 +173,27 @@ async function checkAuth(){
   }
 }
 checkAuth();
-function signup_confirm(){
-  const spopup=document.getElementById("signup-success-popup");
-  spopup.classList.add("show");
+const msg=document.getElementById("msg");
+function confirm_popup(){
+  const popup=document.getElementById("popup");
+  popup.classList.add("show");
   setTimeout(()=>{
-    spopup.classList.remove("show");
+    popup.classList.remove("show");
   },3000);
 }
 const params=new URLSearchParams(window.location.search);
 if(params.get("signup")==="success"){
-  signup_confirm();
+  msg.textContent="Account created successfully!";
+  confirm_popup();
 }
 if(params.get("login")==="success"){
-  login_confirm();
+  msg.textContent="Logged in successfully!";
+  confirm_popup();
 }
-if(params.has("signup") || params.has("login")){
+if(params.get("logout")==="success"){
+  msg.textContent="Logged out successfully!";
+  confirm_popup();
+}
+if(params.has("signup") || params.has("login") || params.has("logout")){
   window.history.replaceState({},document.title,'index.html');
-}
-function login_confirm(){
-  const lpopup=document.getElementById("login-success-popup");
-  lpopup.classList.add("show");
-  setTimeout(()=>{
-    lpopup.classList.remove("show");
-  },3000);
 }

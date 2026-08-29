@@ -6,7 +6,7 @@ const username=document.getElementById("username");
 const email=document.getElementById("email");
 
 async function getProfile(){
-    const response= await fetch("http://127.0.0.1:8000/users/me",{
+    const response= await fetch("https://typespeed-cwb6.onrender.com/users/me",{
         headers:{
             "Authorization":`Bearer ${token}`
         }
@@ -20,3 +20,8 @@ async function getProfile(){
     email.textContent=user.email;
 }
 getProfile();   
+const logoutbtn=document.getElementById("logout-btn");
+logoutbtn.addEventListener("click",()=>{
+    localStorage.removeItem("access_token");
+    window.location.href='index.html?logout=success';
+})
