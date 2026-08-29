@@ -1,6 +1,6 @@
 # ⌨️ TypeSpeed
 
-A full-stack typing speed website built with **FastAPI, Python, MySQL, JavaScript, HTML, and CSS**.
+A full-stack typing speed website built with **FastAPI, Python, PostgreSQL, JavaScript, HTML, and CSS**.
 
 The project is currently under development, with more features planned for future versions.
 
@@ -26,7 +26,7 @@ The project is currently under development, with more features planned for futur
 
 ### 🗄️ Database
 
-- MySQL database integration
+- PostgreSQL database integration
 - SQLModel ORM
 - User model with:
   - Auto-generated ID
@@ -49,7 +49,7 @@ The project is currently under development, with more features planned for futur
 | **Python** | Backend programming |
 | **FastAPI** | REST API / backend framework |
 | **SQLModel** | ORM and database models |
-| **MySQL** | Database |
+| **PostgreSQL** | Database |
 | **PyJWT** | JWT authentication |
 | **pwdlib** | Password hashing |
 | **JavaScript** | Frontend logic & API communication |
