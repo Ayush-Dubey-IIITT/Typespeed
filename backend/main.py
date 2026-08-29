@@ -19,13 +19,11 @@ oauth2_scheme=OAuth2PasswordBearer(tokenUrl="login")
 app=FastAPI()
 
 def create_access_token(user_id:int):
-    expire=datetime.now(timezone.utc)+timedelta(minutes=0.1667)
+    expire=datetime.now(timezone.utc)+timedelta(minutes=30)
     payload={
         "sub":str(user_id),
         "exp":expire
     }
-    print("SECRET:", SECRET_KEY)
-    print("ALGORITHM:", ALGORITHM)
     return jwt.encode(payload,SECRET_KEY,algorithm=ALGORITHM)
 
 def get_current_user(
@@ -56,10 +54,7 @@ def get_current_user(
         raise HTTPException(
             status_code=401,
             detail="User not found"
-        )
-    print("SECRET:", SECRET_KEY)
-    print("ALGORITHM:", ALGORITHM)
-    print("TOKEN:", token)  
+        )  
     return user
 
 app.add_middleware(

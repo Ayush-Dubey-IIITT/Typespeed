@@ -142,9 +142,9 @@ function Restart() {
 }
 async function checkAuth(){
   const token=localStorage.getItem("access_token");
-  const signin=document.getElementsById("signin-btn");
-  const signup=document.getElementsById("signup-btn");
-  const profileIcon=document.getElementsById("profile-icon");
+  const signin=document.getElementById("signin-btn");
+  const signup=document.getElementById("signup-btn");
+  const profileIcon=document.getElementById("profile-icon");
   if(!token){
     signin.style.display="inline-block";
     signup.style.display="inline-block";
@@ -158,14 +158,14 @@ async function checkAuth(){
     });
     if(!response.ok){
       localStorage.removeItem("access_token")
-      signin.style.display="none";
-      signup.style.display="none";
-      profileIcon.style.display="inline-block";
+      signin.style.display="inline-block";
+      signup.style.display="inline-block";
+      profileIcon.style.display="none";
       return;
     }
-    signin.style.display="inline-block";
-    signup.style.display="inline-block";
-    profileIcon.style.display="none";
+    signin.style.display="none";
+    signup.style.display="none";
+    profileIcon.style.display="inline-block";
   }
   catch(error){
     console.log("Authentication check failed:",error);
