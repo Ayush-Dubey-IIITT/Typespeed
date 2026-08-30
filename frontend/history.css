@@ -109,7 +109,9 @@ body {
     background-color: #2d2c29;
     color: #e8e6df;
 }
-
+#test-template[hidden] {
+  display: none !important;
+}
 .history-item {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1.5fr;
