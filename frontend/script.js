@@ -131,6 +131,7 @@ function Accuracy_Speed() {
   total_char.textContent = i;
 }
 function Restart() {
+  test_end.style.display="none";
   clearInterval(countdown);
   generate_random_para();
   input.value = "";
