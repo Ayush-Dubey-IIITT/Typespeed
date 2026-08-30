@@ -616,3 +616,39 @@ footer {
     width: 50%;
     margin: 0;
 }
+.test-ended {
+    margin: 30px 0 10px 0;
+    padding-left: 4px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    color: #e27d52;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: testEndedAppear 0.45s ease forwards;
+}
+
+.test-ended::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background: #e27d52;
+
+    box-shadow: 0 0 8px rgba(226, 125, 82, 0.45);
+}
+
+@keyframes testEndedAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

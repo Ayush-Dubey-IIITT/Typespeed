@@ -11,7 +11,7 @@ if(form){
       signup_error.textContent="Passwords do not match! Please try again.";
       return;
     }
-    const response= await fetch("https://typespeed-cwb6.onrender.com/signup",{
+    const response= await fetch("http://127.0.0.1:8000/signup",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

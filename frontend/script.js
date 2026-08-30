@@ -7,6 +7,7 @@ const accuracy = document.getElementById("accuracy");
 const final_wpm = document.getElementById("final-wpm");
 const final_accuracy = document.getElementById("final-accuracy");
 const total_char = document.getElementById("characters");
+const test_end=document.getElementById("end-section");
 let para;
 let selectedTime = 30;
 let startTime = null;
@@ -65,6 +66,7 @@ input.addEventListener("input", () => {
         input.disabled = true;
         Accuracy_Speed();
         document.getElementById("result-card").classList.add("show");
+        test_end.style.display="flex";
       }
     }, 1000);
   }
@@ -108,9 +110,11 @@ function Accuracy_Speed() {
       count++;
       i++;
       j++;
-    } else if (i + 1 < char && para_input[i + 1] === para[j]) {
+    } 
+    else if (i + 1 < char && para_input[i + 1] === para[j]) {
       i++;
-    } else {
+    } 
+    else {
       i++;
       j++;
     }
@@ -152,7 +156,7 @@ async function checkAuth(){
     return;
   }
   try{
-    const response=await fetch("https://typespeed-cwb6.onrender.com/users/me",{
+    const response=await fetch("http://127.0.0.1:8000/users/me",{
       headers:{
         "Authorization":`Bearer ${token}`
       }
