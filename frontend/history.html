@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History - TypeSpeed</title>
+    <link rel="stylesheet" href="history.css" />
+  </head>
+
+  <body>
+    <div class="history-container">
+      <div class="history-header">
+        <h1>Test History</h1>
+        <p>Your past typing test results</p>
+      </div>
+
+      <div class="history-controls">
+        <button
+          class="back-btn"
+          onclick="window.location.href = 'profile.html'"
+        >
+          ← Back
+        </button>
+
+        <select id="sort-select">
+          <option value="all">Every Test</option>
+          <option value="highest">Highest WPM</option>
+          <option value="lowest">Lowest WPM</option>
+        </select>
+      </div>
+
+      <div class="history-item">
+        <div class="history-stat">
+          <span>WPM</span>
+          <strong id="wpm">59.20</strong>
+        </div>
+
+        <div class="history-stat">
+          <span>ACCURACY</span>
+          <strong id="accuracy">94.6%</strong>
+        </div>
+
+        <div class="history-stat">
+          <span>CHARACTERS</span>
+          <strong id="chars">74</strong>
+        </div>
+
+        <div class="history-stat">
+          <span>DATE AND TIME</span>
+          <strong id="dnt">30 Aug 2026, 12:34 PM</strong>
+        </div>
+      </div>
+    </div>
+
+    <script src="history.js"></script>
+  </body>
+</html>

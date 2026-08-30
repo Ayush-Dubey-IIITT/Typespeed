@@ -1,7 +1,7 @@
 from fastapi import FastAPI,Depends,HTTPException,status
 from fastapi.security import OAuth2PasswordBearer
 from database import engine,get_session
-from model import User,UserInDB,UserCreate,UserResponse,UserLogin
+from model import User,UserInDB,UserCreate,UserResponse,UserLogin,HistoryResponse,TestHistory,HistoryCreate
 from security import hash_password,verify_password
 from sqlmodel import SQLModel,Session,select
 from fastapi.middleware.cors import CORSMiddleware
@@ -110,3 +110,26 @@ def get_me(
     current_user:Annotated[UserInDB,Depends(get_current_user)]
 ):
     return current_user
+
+@app.post("/history/")
+async def store_history(
+    user:Annotated[UserInDB,Depends(get_me)],
+    test:HistoryCreate,
+    session:Annotated[Session,Depends(get_session)]
+):
+    user_id=user.id
+    if user_id is None:
+        raise HTTPException(status_code=401,detail="User not found!")
+    test_hist=HistoryCreate(
+        user_id=user_id,
+        wpm=test.wpm,
+        accuracy=test.accuracy,
+        char=test.char,
+        date_time=test.date_time
+    )
+    session.add(test_hist)
+    session.commit()
+    session.refresh(test_hist)
+
+    return test_hist
+

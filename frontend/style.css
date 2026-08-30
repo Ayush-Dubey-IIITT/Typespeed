@@ -729,3 +729,37 @@ footer {
 .toggle-password:hover {
     background: #e48861;
 }
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.result-buttons button {
+    width: 138px;
+    height: 48px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #d97750;
+    color: #1f1e1b;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.result-buttons button:hover {
+    background: #e48861;
+    transform: translateY(-2px);
+}
+
+.result-buttons button:active {
+    transform: translateY(0);
+}

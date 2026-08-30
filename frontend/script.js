@@ -98,6 +98,11 @@ input.addEventListener("input", () => {
 if (input.value.length >= para.length) {
   input.disabled = true;
 }
+const testData={
+  wpm:0,
+  acc:0,
+  chars:0
+}
 function Accuracy_Speed() {
   let count = 0;
   para_input = input.value;
@@ -129,6 +134,10 @@ function Accuracy_Speed() {
   final_wpm.textContent = wpm;
   final_accuracy.textContent = acc;
   total_char.textContent = i;
+
+  testData.wpm=wpm;
+  testData.acc=acc;
+  testData.chars=i;
 }
 function Restart() {
   test_end.style.display="none";
@@ -202,3 +211,12 @@ if(params.get("logout")==="success"){
 if(params.has("signup") || params.has("login") || params.has("logout")){
   window.history.replaceState({},document.title,'index.html');
 }
+const token=localStorage.getItem("access_token")
+const response=fetch("https://typespeed-cwb6.onrender.com/history",{
+  method:"POST",
+  headers:{
+    "Content-Type":"application/json",
+    "Authorization": `Bearer ${token}`
+  },
+  body: JSON.stringify(testData)
+});

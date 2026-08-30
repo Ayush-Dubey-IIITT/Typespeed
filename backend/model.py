@@ -1,5 +1,6 @@
 from sqlmodel import SQLModel,Field
 from pydantic import EmailStr
+from datetime import datetime
 
 class User(SQLModel):
     username:str=Field(unique=True)
@@ -18,3 +19,16 @@ class UserResponse(User):
 class UserLogin(SQLModel):
     email:EmailStr
     password:str
+
+class TestHistory(SQLModel,table=True):
+    id:int=Field(default=None,primary_key=True)
+    wpm:float
+    accuracy:float
+    char:int
+    date_time:datetime=Field(default_factory=datetime.utcnow)
+
+    user_id:int=Field(foreign_key="userindb.id")
+class HistoryCreate(TestHistory):
+    pass
+class HistoryResponse(TestHistory):
+    pass
