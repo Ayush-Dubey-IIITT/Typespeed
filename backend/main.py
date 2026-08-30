@@ -133,14 +133,14 @@ async def store_history(
 
     return test_hist
 
-@app.get("/history/saved",response_model=HistoryResponse)
+@app.get("/history/saved",response_model=list[HistoryResponse])
 async def get_history(
     user:Annotated[UserInDB,Depends(get_me)],
     session:Annotated[Session,Depends(get_session)]
 ):
     statement=select(TestHistory).where(
         (TestHistory.user_id==user.id))
-    test=session.exec(statement).first()
+    test=session.exec(statement).all()
     if test is None:
         raise HTTPException(status_code=404,detail="Test not found")
     return test
