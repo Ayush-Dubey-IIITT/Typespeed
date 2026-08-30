@@ -212,7 +212,7 @@ if(params.has("signup") || params.has("login") || params.has("logout")){
   window.history.replaceState({},document.title,'index.html');
 }
 const token=localStorage.getItem("access_token")
-const response=fetch("https://typespeed-cwb6.onrender.com/history",{
+const response=fetch("https://typespeed-cwb6.onrender.com/history/",{
   method:"POST",
   headers:{
     "Content-Type":"application/json",
