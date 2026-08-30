@@ -4,7 +4,7 @@ form.addEventListener("submit",async (event)=>{
     const email=document.getElementById("email").value;
     const pass=document.getElementById("pass").value;
     const login_error=document.getElementById("login-error");
-    const response=await fetch("http://127.0.0.1:8000/login",{
+    const response=await fetch("https://typespeed-cwb6.onrender.com/login",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

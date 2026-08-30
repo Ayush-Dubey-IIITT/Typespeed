@@ -156,7 +156,7 @@ async function checkAuth(){
     return;
   }
   try{
-    const response=await fetch("http://127.0.0.1:8000/users/me",{
+    const response=await fetch("https://typespeed-cwb6.onrender.com/users/me",{
       headers:{
         "Authorization":`Bearer ${token}`
       }
