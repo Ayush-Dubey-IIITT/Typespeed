@@ -22,6 +22,7 @@ async function get_tests() {
     const card = template.cloneNode(true);
 
     card.removeAttribute("id");
+    card.hidden=false;
 
     card.querySelector(".wpm").textContent = test.wpm;
     card.querySelector(".accuracy").textContent = `${test.accuracy}%`;
