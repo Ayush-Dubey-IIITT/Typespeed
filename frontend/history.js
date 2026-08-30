@@ -1,8 +1,3 @@
-const wpm = document.getElementById("wpm");
-const accuracy = document.getElementById("accuracy");
-const char = document.getElementById("chars");
-const dnt = document.getElementById("dnt");
-
 async function get_tests() {
   const token = localStorage.getItem("access_token");
   if (!token) {
