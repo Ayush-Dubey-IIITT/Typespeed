@@ -114,13 +114,13 @@ def get_me(
 @app.post("/history")
 async def store_history(
     user:Annotated[UserInDB,Depends(get_me)],
-    test:HistoryCreate,
+    test:TestHistory,
     session:Annotated[Session,Depends(get_session)]
 ):
     user_id=user.id
     if user_id is None:
         raise HTTPException(status_code=401,detail="User not found!")
-    test_hist=HistoryCreate(
+    test_hist=TestHistory(
         user_id=user_id,
         wpm=test.wpm,
         accuracy=test.accuracy,
