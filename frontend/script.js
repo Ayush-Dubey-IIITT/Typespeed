@@ -100,8 +100,8 @@ if (input.value.length >= para.length) {
 }
 const testData={
   wpm:0,
-  acc:0,
-  chars:0
+  accuracy:0,
+  char:0
 }
 function Accuracy_Speed() {
   let count = 0;
@@ -136,8 +136,8 @@ function Accuracy_Speed() {
   total_char.textContent = i;
 
   testData.wpm=wpm;
-  testData.acc=acc;
-  testData.chars=i;
+  testData.accuracy=acc;
+  testData.char=i;
 }
 function Restart() {
   test_end.style.display="none";
@@ -211,12 +211,23 @@ if(params.get("logout")==="success"){
 if(params.has("signup") || params.has("login") || params.has("logout")){
   window.history.replaceState({},document.title,'index.html');
 }
-const token=localStorage.getItem("access_token")
-const response=fetch("https://typespeed-cwb6.onrender.com/history/",{
-  method:"POST",
-  headers:{
-    "Content-Type":"application/json",
-    "Authorization": `Bearer ${token}`
-  },
-  body: JSON.stringify(testData)
-});
+async function saveTest(){
+  const token=localStorage.getItem("access_token")
+  if(!token){
+    alert("Please login to save your result!");
+    return;
+  }
+  const response=await fetch("https://typespeed-cwb6.onrender.com/history",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(testData)
+  });
+  if(!response.ok){
+    console.log(await response.text());
+    throw new Error("Failed to save test");
+  }
+  console.log("Test saved!");
+}

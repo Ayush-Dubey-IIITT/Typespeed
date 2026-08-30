@@ -111,7 +111,7 @@ def get_me(
 ):
     return current_user
 
-@app.post("/history/")
+@app.post("/history")
 async def store_history(
     user:Annotated[UserInDB,Depends(get_me)],
     test:HistoryCreate,
