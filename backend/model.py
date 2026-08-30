@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel,Field
 from pydantic import EmailStr
-from datetime import datetime
+from datetime import datetime,timezone
 
 class User(SQLModel):
     username:str=Field(unique=True)
@@ -25,7 +25,8 @@ class TestHistory(SQLModel,table=True):
     wpm:float
     accuracy:float
     char:int
-    date_time:datetime=Field(default_factory=datetime.utcnow)
+    date_time: datetime = Field(
+        default_factory=lambda: datetime.now(timezone.utc))
 
     user_id:int=Field(foreign_key="userindb.id")
 class HistoryCreate(TestHistory):
