@@ -1,31 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Create Account</h1>
+      <p>Sign up to save your typing results.</p>
 
-<div class="login-container">
-    <h1>Create Account</h1>
-    <p>Sign up to save your typing results.</p>
+      <form id="signup-form">
+        <input id="user" type="text" placeholder="Username" required />
+        <input id="email" type="email" placeholder="Email" required />
+        <div class="password-container">
+          <input id="pass" type="password" placeholder="Password" required />
 
-    <form id="signup-form">
-        <input id="user" type="text" placeholder="Username" required>
-        <input id="email" type="email" placeholder="Email" required>
-        <input id="pass" type="password" placeholder="Password" required>
-        <input id="conf_pass" type="password" placeholder="Confirm Password" required>
+          <button
+            type="button"
+            class="toggle-password"
+            onclick="togglePassword('pass', this)"
+          >
+            Show
+          </button>
+        </div>
+
+        <div class="password-container">
+          <input
+            id="conf_pass"
+            type="password"
+            placeholder="Confirm Password"
+            required
+          />
+
+          <button
+            type="button"
+            class="toggle-password"
+            onclick="togglePassword('conf_pass', this)"
+          >
+            Show
+          </button>
+        </div>
 
         <button type="submit">Sign Up</button>
-
         <p id="signup-error"></p>
-    </form>
+      </form>
 
-    <p>Already have an account? <a href="login.html">Sign In</a></p>
-    <script src="signup.js"></script>
-</div>
-
-</body>
+      <p>Already have an account? <a href="login.html">Sign In</a></p>
+      <script src="signup.js"></script>
+    </div>
+  </body>
 </html>

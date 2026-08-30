@@ -688,3 +688,44 @@ footer {
 .restart-btn:active {
     transform: translateY(0);
 }
+
+.password-container {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.password-container input {
+    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    flex-shrink: 0;
+    width: 68px;
+
+    padding: 0;
+    margin: 0;
+
+    border: 1px solid #555;
+    border-radius: 8px;
+
+    background: #d97750;
+    color: #1f1e1b;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password:hover {
+    background: #e48861;
+}
