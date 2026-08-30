@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordBearer
 from database import engine,get_session
 from model import User,UserInDB,UserCreate,UserResponse,UserLogin,HistoryResponse,TestHistory,HistoryCreate
 from security import hash_password,verify_password
-from sqlmodel import SQLModel,Session,select
+from sqlmodel import SQLModel,Session,select,desc
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Annotated
 import os
@@ -133,3 +133,14 @@ async def store_history(
 
     return test_hist
 
+@app.get("/history/saved",response_model=HistoryResponse)
+async def get_history(
+    user:Annotated[UserInDB,Depends(get_me)],
+    session:Annotated[Session,Depends(get_session)]
+):
+    statement=select(TestHistory).where(
+        (TestHistory.user_id==user.id))
+    test=session.exec(statement).first()
+    if test is None:
+        raise HTTPException(status_code=404,detail="Test not found")
+    return test
