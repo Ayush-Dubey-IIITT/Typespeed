@@ -6,9 +6,7 @@ async function get_tests() {
     return;
   }
 
-  const response = await fetch(
-    "https://typespeed-cwb6.onrender.com/history/saved",
-    {
+  const response = await fetch("https://typespeed-cwb6.onrender.com/history/saved",{
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -27,7 +25,7 @@ async function get_tests() {
     card.querySelector(".wpm").textContent = test.wpm;
     card.querySelector(".accuracy").textContent = `${test.accuracy}%`;
     card.querySelector(".chars").textContent = test.char;
-
+    console.log(test.date_time);
     card.querySelector(".dnt").textContent = new Date(
       test.date_time,
     ).toLocaleString("en-IN", {

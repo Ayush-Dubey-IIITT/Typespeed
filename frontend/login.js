@@ -14,7 +14,7 @@ form.addEventListener("submit",async (event)=>{
             password:pass
         })
     });
-    const data= await response.json()
+    const data= await response.json();
     if(!response.ok){
         login_error.textContent=data.detail;
         return;
