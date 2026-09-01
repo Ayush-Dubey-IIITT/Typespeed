@@ -1,3 +1,5 @@
+const { jsx } = require("react/jsx-runtime");
+
 const form=document.getElementById("Login-form");
 form.addEventListener("submit",async (event)=>{
     event.preventDefault();
@@ -33,4 +35,20 @@ function togglePassword(inputId,btn){
     input.type="password";
     btn.textContent="Show";
   }
+}
+const pendingTest=sessionStorage.getItem("pendingTest");
+if(pendingTest){
+    const testData=JSON.parse(pendingTest);
+    const response=fetch("https://typespeed-cwb6.onrender.com/login",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Bearer ${localStorage.getItem("access_token")}`
+        },
+        body: JSON.stringify(testData)
+    });
+    if(response.ok){
+        sessionStorage.removeItem("pendingTest");
+        window.location.href='index.html';
+    }
 }

@@ -215,8 +215,8 @@ if(params.has("signup") || params.has("login") || params.has("logout")){
 async function saveTest(){
   const token=localStorage.getItem("access_token")
   if(!token){
-    alert("Please login to save your result!");
-    return;
+    sessionStorage.setItem("pendingTest",JSON.stringify(testData));
+    window.location.href='login.html';
   }
   const response=await fetch("https://typespeed-cwb6.onrender.com/history",{
     method:"POST",
