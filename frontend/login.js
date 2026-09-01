@@ -1,5 +1,3 @@
-const { jsx } = require("react/jsx-runtime");
-
 const form=document.getElementById("Login-form");
 form.addEventListener("submit",async (event)=>{
     event.preventDefault();
