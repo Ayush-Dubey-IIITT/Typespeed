@@ -230,5 +230,7 @@ async function saveTest(){
     console.log(await response.text());
     throw new Error("Failed to save test");
   }
+  msg.textContent="Test saved!";
+  confirm_popup();
   console.log("Test saved!");
 }
