@@ -27,7 +27,7 @@ async function get_tests() {
     card.querySelector(".chars").textContent = test.char;
     console.log(test.date_time);
     card.querySelector(".dnt").textContent = new Date(
-      test.date_time,
+      test.date_time+"Z",
     ).toLocaleString("en-IN", {
       timeZone: "Asia/Kolkata",
       dateStyle: "medium",
