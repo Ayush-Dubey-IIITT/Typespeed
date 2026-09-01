@@ -101,7 +101,8 @@ if (input.value.length >= para.length) {
 const testData={
   wpm:0,
   accuracy:0,
-  char:0
+  char:0,
+  date_time:null
 }
 function Accuracy_Speed() {
   let count = 0;
