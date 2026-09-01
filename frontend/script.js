@@ -217,6 +217,7 @@ async function saveTest(){
   if(!token){
     sessionStorage.setItem("pendingTest",JSON.stringify(testData));
     window.location.href='login.html';
+    return;
   }
   const response=await fetch("https://typespeed-cwb6.onrender.com/history",{
     method:"POST",

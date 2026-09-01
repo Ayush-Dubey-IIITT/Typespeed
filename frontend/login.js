@@ -19,7 +19,24 @@ form.addEventListener("submit",async (event)=>{
         login_error.textContent=data.detail;
         return;
     }
-    localStorage.setItem("access_token",data.access_token)
+    localStorage.setItem("access_token",data.access_token);
+
+    const pendingTest=sessionStorage.getItem("pendingTest");
+    if(pendingTest){
+        const testData=JSON.parse(pendingTest);
+        const saveResponse=fetch("https://typespeed-cwb6.onrender.com/history",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":`Bearer ${localStorage.getItem("access_token")}`
+            },
+            body: JSON.stringify(testData)
+        });
+        if(saveResponse.ok){
+            sessionStorage.removeItem("pendingTest");
+            window.location.href='index.html';
+        }
+    }
     form.reset();
     window.location.href='index.html?login=success';
 });
@@ -33,20 +50,4 @@ function togglePassword(inputId,btn){
     input.type="password";
     btn.textContent="Show";
   }
-}
-const pendingTest=sessionStorage.getItem("pendingTest");
-if(pendingTest){
-    const testData=JSON.parse(pendingTest);
-    const response=fetch("https://typespeed-cwb6.onrender.com/login",{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Bearer ${localStorage.getItem("access_token")}`
-        },
-        body: JSON.stringify(testData)
-    });
-    if(response.ok){
-        sessionStorage.removeItem("pendingTest");
-        window.location.href='index.html';
-    }
 }
